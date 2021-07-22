@@ -1,2 +1,3 @@
-export * from './houseForRent.Actions'
+export * from './actor.Actions'
+export * from './customer.Actions'
 

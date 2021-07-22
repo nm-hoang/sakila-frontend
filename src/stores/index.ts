@@ -2,7 +2,8 @@ import { applyMiddleware, combineReducers, compose, createStore } from "redux";
 import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import thunkMiddleware from "redux-thunk";
-import houseForRentReducers from "./reducers/houseForRent.Reducers";
+import actorReducers from "./reducers/actor.Reducers";
+import customerReducers from "./reducers/customer.Reducers";
 const persistConfig = {
 	key: "root",
 	storage,
@@ -10,7 +11,8 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
-	houseforrent: houseForRentReducers,
+	actor: actorReducers,
+	customer: customerReducers,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
