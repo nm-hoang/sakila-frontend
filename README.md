@@ -1,4 +1,4 @@
-## Technologies: Base Create-react-app with Typescript, Redux-thunk, Bootstrap5, Ant Design.
+## Technologies: Base Create-react-app with Typescript, Redux-thunk, Axios, Bootstrap5, Ant Design.
 
 Link api-sakila: [https://github.com/nm-hoang/api-sakila](https://github.com/nm-hoang/api-sakila)
 
