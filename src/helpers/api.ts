@@ -6,8 +6,6 @@ import { history } from './history';
 const api = axios.create({
   baseURL: `${env.API_URL}/api`,
   headers: {
-    'Content-Type': 'application/json',
-    'AuthenKey': 'GroundKey'
   },
 });
 

@@ -1,5 +1,13 @@
 export const ApiConstants = {
-	houseforrent_getlist: '/ground/houseforrent/getlist?',
+	actor_getlist: '',
+	actor_getbyid: '',
+	actor_insert: '',
+	actor_delete: '',
+
+	customer_getlist: '',
+	customer_getbyid: '',
+	customer_insert: '',
+	customer_delete: '',
 };
 
 
