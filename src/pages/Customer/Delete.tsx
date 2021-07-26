@@ -1,19 +1,20 @@
 import { Space, Form, Input, Button } from 'antd'
-import { actor_delete } from '../../stores/actions';
+import { customer_delete } from '../../stores/actions';
 import { useDispatch } from 'react-redux';
-export function DeleteActor() {
+export function DeleteCustomer() {
     const dispatch = useDispatch()
     const onFinish = (e: any) => {
-        dispatch(actor_delete(e.actor_id))
+        console.log(e)
+        dispatch(customer_delete(e.customer_id))
     }
     return (
         <div className="mt-2">
             <Space className="mt-2">
-                <Button href="/actor-getlist">Get list</Button>
-                <Button href="/actor-details">Get by ID</Button>
-                <Button href="/actor-update">Update</Button>
-                <Button href="/actor-insert">Insert</Button>
-                <Button href="/actor-delete">Delete</Button>
+                <Button href="/customer-getlist">Get list</Button>
+                <Button href="/customer-details">Get by ID</Button>
+                <Button href="/customer-update">Update</Button>
+                <Button href="/customer-insert">Insert</Button>
+                <Button href="/customer-delete">Delete</Button>
             </Space>
 
             <div
@@ -26,9 +27,9 @@ export function DeleteActor() {
                     onFinish={onFinish}
                 >
                     <Form.Item
-                        label="Actor ID"
-                        name="actor_id"
-                        rules={[{ required: true, message: 'Please input your actor ID!' }]}
+                        label="Customer ID"
+                        name="customer_id"
+                        rules={[{ required: true, message: 'Please input your customer ID!' }]}
                     >
                         <Input />
                     </Form.Item>

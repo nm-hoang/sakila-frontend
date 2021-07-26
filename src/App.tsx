@@ -5,19 +5,32 @@ import { UrlConstants } from './constants';
 import { PrivateRoute } from './routes/PrivateRoute';
 import { history } from './helpers';
 
-import { Actor } from './pages/Actor'
-import { DetailActor } from './pages/Actor/Detail';
+import { Home } from './pages';
+
+import { Actor } from './pages/Actor/'
+import { DetailActor } from './pages/Actor/Details';
 import { UpdateActor } from './pages/Actor/Update';
 import { InsertActor } from './pages/Actor/Insert';
 import { DeleteActor } from './pages/Actor/Delete';
 
 import { Customer } from './pages/Customer'
-import { Button } from 'antd'
+import { DetailCustomer } from './pages/Customer/Details';
+import { UpdateCustomer } from './pages/Customer/Update';
+import { InsertCustomer } from './pages/Customer/Insert';
+import { DeleteCustomer } from './pages/Customer/Delete';
+import { Button, Tag } from 'antd'
 function App() {
   return (
     <Router history={history}>
-      <div style={{ marginTop: "1%", marginLeft: "5%" }}>
-        <Button type="primary" href="/" size={'large'}>Homepage</Button>
+      <div style={{ marginTop: "1%", marginLeft: "5%", marginBottom: "8%" }}>
+        <Button className="mb-3" type="primary" href="/" size={'large'}>Homepage</Button><br />
+        <Tag color="green">
+          <a href="/actor-getlist" style={{ color: "#389e0d",fontSize:"2em" }}>Actor</a>
+        </Tag>
+        <Tag color="green">
+          <a href="/customer-getlist" style={{ color: "#389e0d", fontSize:"2em"}}>Customer</a>
+        </Tag><br />
+       
         <Switch>
           {/* Actor */}
           <PrivateRoute exact path={UrlConstants.ACTOR_DETAILS}>
@@ -38,21 +51,24 @@ function App() {
 
           {/* Customer */}
           <PrivateRoute exact path={UrlConstants.CUSTOMER_DETAILS}>
-            <Actor />
+            <DetailCustomer />
           </PrivateRoute>
           <PrivateRoute exact path={UrlConstants.CUSTOMER_UPDATE}>
-            <Actor />
+            <UpdateCustomer />
           </PrivateRoute>
           <PrivateRoute exact path={UrlConstants.CUSTOMER_INSERT}>
-            <Actor />
+            <InsertCustomer />
           </PrivateRoute>
           <PrivateRoute exact path={UrlConstants.CUSTOMER_DELETE}>
-            <Actor />
+            <DeleteCustomer />
           </PrivateRoute>
           <PrivateRoute exact path={UrlConstants.CUSTOMER_GETLIST}>
-            <Actor />
+            <Customer />
           </PrivateRoute>
 
+          <PrivateRoute exact path={UrlConstants.HOME}>
+            <Home />
+          </PrivateRoute>
 
         </Switch>
       </div>

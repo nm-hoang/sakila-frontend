@@ -14,6 +14,7 @@ const initialState: InitialStateI = {
 }
 const customerReducers = (state: InitialStateI = initialState, payload: any) => {
     switch (payload.type) {
+        // getlist
         case TYPES.GETLIST_CUSTOMER_REQUEST:
             return {
                 ...state,
@@ -33,6 +34,92 @@ const customerReducers = (state: InitialStateI = initialState, payload: any) => 
                 success: false,
                 message: payload.message,
             };
+            
+        // get by id
+        case TYPES.GETBYID_CUSTOMER_REQUEST:
+            return {
+                ...state,
+                requesting: true,
+                obj_data: null,
+            };
+        case TYPES.GETBYID_CUSTOMER_SUCCESS:
+            return {
+                ...state,
+                requesting: false,
+                success: true,
+                obj_data: payload.data,
+            };
+        case TYPES.GETBYID_CUSTOMER_ERROR:
+            return {
+                ...state,
+                requesting: false,
+                success: false,
+                message: payload.message,
+            };
+
+        // insert
+        case TYPES.INSERT_CUSTOMER_REQUEST:
+            return {
+                ...state,
+                requesting: true,
+            };
+        case TYPES.INSERT_CUSTOMER_SUCCESS:
+            return {
+                ...state,
+                requesting: false,
+                success: true,
+                obj_data: payload.data,
+            };
+        case TYPES.INSERT_CUSTOMER_ERROR:
+            return {
+                ...state,
+                requesting: false,
+                success: false,
+                message: payload.message,
+            };
+            
+        // update
+        case TYPES.UPDATE_CUSTOMER_REQUEST:
+            return {
+                ...state,
+                requesting: true,
+            };
+        case TYPES.UPDATE_CUSTOMER_SUCCESS:
+            return {
+                ...state,
+                requesting: false,
+                success: true,
+                obj_data: payload.data,
+            };
+        case TYPES.UPDATE_CUSTOMER_ERROR:
+            return {
+                ...state,
+                requesting: false,
+                success: false,
+                message: payload.message,
+            };
+
+        // delete
+        case TYPES.DELETE_CUSTOMER_REQUEST:
+            return {
+                ...state,
+                requesting: true,
+            };
+        case TYPES.DELETE_CUSTOMER_SUCCESS:
+            return {
+                ...state,
+                requesting: false,
+                success: true,
+                message: payload.data,
+            };
+        case TYPES.DELETE_CUSTOMER_ERROR:
+            return {
+                ...state,
+                requesting: false,
+                success: false,
+                message: payload.message,
+            };
+
         default:
             return state;
     }
